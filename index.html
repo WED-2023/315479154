@@ -57,6 +57,9 @@
 
 <section id="spa" class="section">
     <div class="styled-text">ans</div>
+    <div class="web 1">web 1</div>
+    <div class="web 2">web 2</div>
+    <div class="web 3">web 3</div>
 </section>
 
 <section id="contact" class="section">
@@ -83,10 +86,10 @@ $(function(){
             $("#likeEmoji").show().addClass('animate__animated animate__heartBeat').css('opacity', 1); // Show and animate like emoji
             // Remove animation class after it completes
             setTimeout(() => {
-                $("#likeEmoji").removeClass('animate__animated animate__heartBeat').animate({opacity: 0}, 800, function() {
+                $("#likeEmoji").removeClass('animate__animated animate__heartBeat').animate({opacity: 0}, 500, function() {
                     $(this).hide();
                 });
-            }, 1500); // Time in milliseconds
+            }, 2000); // Time in milliseconds
         } else {
             $(this).text('Like');
             $(this).css('background-color', '#4CAF50');
@@ -96,7 +99,7 @@ $(function(){
                 $("#unlikeEmoji").removeClass('animate__animated animate__bounceOutDown').animate({opacity: 0}, 500, function() {
                     $(this).hide();
                 });
-            }, 1000); // Time in milliseconds
+            }, 5000); // Time in milliseconds
         }
     });
 });
