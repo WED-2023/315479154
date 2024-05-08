@@ -2,59 +2,70 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .like-unlike-emoji {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
+<div id="header">
+    <img id="headerImage" src="your-image.jpg" alt="Header Image">
+</div>
 <div id="menu">
     <ul>
         <li><a href="#about">About Me</a></li>
         <li><a href="#photos">My Photos</a></li>
         <li><a href="#playlist">My Playlist</a></li>
-        <li><a href="#like">Like</a></li>
-        <li><a href="#qrcoder">QR code</a></li>
+        <li><a href="#likeButton">Like</a></li>
+        <li><a href="#qrcoder">QR Code</a></li>
         <li><a href="#spa">Q&A</a></li>
         <li><a href="#contact">Contact Me</a></li>
     </ul>
 </div>
-		  
+
 <section id="about" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>about me<br/><br/><br/>
+    <div class="styled-text">about me</div>
 </section>
 
 <section id="photos" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>my photos<br/><br/><br/>
+    <div class="styled-text">my photos</div>
 </section>
 
 <section id="playlist" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>my playlist<br/><br/><br/>
+    <div class="styled-text">my playlist</div>
 </section>
 
 <section id="like" class="section">
-    <button id="likeButton">Like</button>
-    <span id="likeCount">0</span> Likes
+    <div class="like-container">
+        <button id="likeButton">Like</button>
+        <div id="likeEmoji" class="like-unlike-emoji">👍</div>
+        <div id="unlikeEmoji" class="like-unlike-emoji">👎</div>
+    </div>
 </section>
 
 <section id="qrcoder" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>scan my code<br/><br/><br/>
-    <img src="my website qr.png" alt="qr code"  style="width: 500px; height: auto;>
-    <br/><br/>
+    <div class="styled-text">scan my code</div>
+    <img src="my website qr.png" alt="qr code" style="width: 500px; height: auto;">
 </section>
 
 <section id="spa" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>ans<br/><br/><br/>
+    <div class="styled-text">ans</div>
 </section>
 
 <section id="contact" class="section">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>contact me<br/><br/><br/>
+    <div class="styled-text">contact me</div>
 </section>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-  $(function(){
-    var likeCount = localStorage.getItem('likeCount') || 0;
-
-    // Display the initial like count
-    $("#likeCount").text(likeCount);
-
+$(function(){
     $("#menu a").click(function(e){
         e.preventDefault();
         $('html,body').animate({
@@ -62,18 +73,30 @@
         }, 1000); 
     });
 
-    // JavaScript for handling likes
+    var liked = false; // Variable to track like state
+
     $("#likeButton").click(function() {
-        // Check if the user has already liked
-        if (!localStorage.getItem('hasLiked')) {
-            likeCount++;
-            // Update the like count and store it in localStorage
-            $("#likeCount").text(likeCount);
-            localStorage.setItem('likeCount', likeCount);
-            // Set a flag in localStorage indicating that the user has liked
-            localStorage.setItem('hasLiked', true);
+        liked = !liked; // Toggle the liked state
+        if (liked) {
+            $(this).text('Unlike');
+            $(this).css('background-color', '#FF6347');
+            $("#likeEmoji").show().addClass('animate__animated animate__heartBeat').css('opacity', 1); // Show and animate like emoji
+            // Remove animation class after it completes
+            setTimeout(() => {
+                $("#likeEmoji").removeClass('animate__animated animate__heartBeat').animate({opacity: 0}, 800, function() {
+                    $(this).hide();
+                });
+            }, 1500); // Time in milliseconds
         } else {
-            alert("You can only like once!");
+            $(this).text('Like');
+            $(this).css('background-color', '#4CAF50');
+            $("#unlikeEmoji").show().addClass('animate__animated animate__bounceOutDown').css('opacity', 1); // Show and animate unlike emoji
+            // Remove animation class after it completes
+            setTimeout(() => {
+                $("#unlikeEmoji").removeClass('animate__animated animate__bounceOutDown').animate({opacity: 0}, 500, function() {
+                    $(this).hide();
+                });
+            }, 1000); // Time in milliseconds
         }
     });
 });
