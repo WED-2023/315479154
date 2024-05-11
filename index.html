@@ -4,19 +4,11 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        .like-unlike-emoji {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
 <div id="header">
-    <img id="headerImage" src="your-image.jpg" alt="Header Image">
+    <img id="headerImage" src="Hercules.jpg" alt="Header Image">
 </div>
 <div id="menu">
     <ul>
@@ -31,7 +23,26 @@
 </div>
 
 <section id="about" class="section">
-    <div class="styled-text">about me</div>
+    <div class="styled-text">
+        <p>About Me</p>
+    </div>
+    <div class="row-container">
+        <div class="row">
+            Hercules, from the classic Disney movie, is a character from the greek mythology, son of the gods Zeus and Hera. Born a god but raised as a mortal after he's been stolen from mount Olympus, Hercules possesses incredible strength and a good heart. After 
+        </div>
+        <div class="row">
+           struggle, as he strives to prove himself a true hero and regain his place on Mount Olympus.
+        </div>
+        <div class="row">
+            struggle, as he strives to prove himself a true hero and regain his place on Mount Olympus. His resume as a hero is filled with legendary feats, from defeating the Hydra to capturing the Golden Fleece. But beyond his physical strength, Hercules' true power lies in his compassion and determination to do what is right. His hobbies include training with Phil, exploring new worlds, and helping those in need.
+        </div>
+        <div class="row">
+            An idol to many, Hercules embodies the values of courage, perseverance, and kindness. His unwavering dedication to his friends, family, and the greater good serves as an inspiration to all.
+        </div>
+        <div class="row">
+            And though his path may be challenging, Hercules finds solace and love in Megara, his wife and soulmate, who stands by his side through every trial and triumph.
+        </div>
+    </div>
 </section>
 
 <section id="photos" class="section">
@@ -45,8 +56,6 @@
 <section id="like" class="section">
     <div class="like-container">
         <button id="likeButton">Like</button>
-        <div id="likeEmoji" class="like-unlike-emoji">👍</div>
-        <div id="unlikeEmoji" class="like-unlike-emoji">👎</div>
     </div>
 </section>
 
@@ -68,38 +77,39 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-$(function(){
-    $("#menu a").click(function(e){
-        e.preventDefault();
-        $('html,body').animate({
-            scrollTop: $($(this).attr('href')).offset().top - $('#menu').outerHeight()
-        }, 1000); 
+$(document).ready(function(){
+    // Smooth scrolling functionality
+    $('#menu a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            var menuHeight = $('#menu').outerHeight(); // Get the height of the menu
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top - menuHeight - 30 // Adjusted offset
+            }, 1000);
+        }
     });
 
+    // Like button functionality
     var liked = false; // Variable to track like state
-
     $("#likeButton").click(function() {
         liked = !liked; // Toggle the liked state
         if (liked) {
             $(this).text('Unlike');
             $(this).css('background-color', '#FF6347');
-            $("#likeEmoji").show().addClass('animate__animated animate__heartBeat').css('opacity', 1); // Show and animate like emoji
+            $(this).addClass('animate__animated animate__bounce'); // Add animate.css class
             // Remove animation class after it completes
             setTimeout(() => {
-                $("#likeEmoji").removeClass('animate__animated animate__heartBeat').animate({opacity: 0}, 500, function() {
-                    $(this).hide();
-                });
-            }, 2000); // Time in milliseconds
+                $(this).removeClass('animate__animated animate__bounce');
+            }, 1000); // Time in milliseconds
         } else {
             $(this).text('Like');
             $(this).css('background-color', '#4CAF50');
-            $("#unlikeEmoji").show().addClass('animate__animated animate__bounceOutDown').css('opacity', 1); // Show and animate unlike emoji
+            $(this).addClass('animate__animated animate__headShake'); // Add animate.css class
             // Remove animation class after it completes
             setTimeout(() => {
-                $("#unlikeEmoji").removeClass('animate__animated animate__bounceOutDown').animate({opacity: 0}, 500, function() {
-                    $(this).hide();
-                });
-            }, 5000); // Time in milliseconds
+                $(this).removeClass('animate__animated animate__headShake');
+            }, 1000); // Time in milliseconds
         }
     });
 });
