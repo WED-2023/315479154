@@ -4,6 +4,20 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        .photos-container {
+            width: 500px; /* Increase the width */
+            height: 400px; /* Increase the height */
+            overflow: hidden; /* Hide overflow to create the sliding effect */
+            position: relative;
+            margin-left: 50px; /* Move container 50px to the right */
+        }
+
+        .photos-container img {
+            width: 100%; /* Ensure the image fills the container */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute;
+            transition: left 1s ease; /* Add smooth transition effect */
+        }
     </style>
 </head>
 <body>
@@ -35,17 +49,21 @@
 <section id="photos" class="section">
     <div class="styled-text">my photos</div>
     <div class="photos-container">
-        <img src="photos/hercules_baby.jpeg" alt="hercules_baby" style="width: 200px; height: auto;">
-        <img src="photos/hercules teenager.png" alt="teenager" style="width: 200px; height: auto;">
-        <img src="photos/herc phil and pegasus.webp" alt="herc pegasus phil" style="width: 300px; height: auto;">
-        <img src="photos/herc and megara.webp" alt="hercules and megara" style="width: 250px; height: auto;">
-        <img src="photos/zeus and herc.jpg" alt="hercules and zeus" style="width: 200px; height: auto;">
+        <img src="photos/hercules_baby.jpeg" alt="hercules_baby">
+        <!-- <img src="photos/hercules teenager.png" alt="teenager" style="display: none;"> -->
+        <img src="photos/herc phil and pegasus.webp" alt="herc pegasus phil" style="display: none;">
+        <img src="photos/herc and megara.webp" alt="hercules and megara" style="display: none;">
+        <img src="photos/zeus and herc.jpg" alt="hercules and zeus" style="display: none;">
     </div>
 </section>
 
 <section id="playlist" class="section">
-    <div class="styled-text">my playlist</div>
+    <div class="styled-text">My Playlist</div>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/J5U1EoZlw30?si=cFuZ24sGARCZ8f4q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 </section>
+
 
 <section id="like" class="section">
     <div class="like-container">
@@ -55,14 +73,24 @@
 
 <section id="qrcoder" class="section">
     <div class="styled-text">scan my code</div>
-    <img src="photos/my website qr.png" alt="qr code" style="width: 500px; height: auto;">
+    <img src="photos/Hercules_qr.png" alt="qr code" style="width: 500px; height: auto; margin-left: 50px;">
 </section>
 
 <section id="spa" class="section">
     <div class="styled-text">ans</div>
-    <div class="web 1">web 1</div>
-    <div class="web 2">web 2</div>
-    <div class="web 3">web 3</div>
+    <div><b>Q1: 3 main differences between web1, web2 and web 3:</b></div>
+    <div class="hebrew-title"><u>חווית משתמש/מנשקי אדם</u></div>
+    <div class="hebrew">web1 - אתרים סטטיים שנועדו עבור צפייה בתוכן ללא ביצוע פעילויות מעבר לצפייה</div>
+    <div class="hebrew">web 2 - חשיפה לאינטרקטיביות ומתן אפשרות למשתמש לייצר תוכן כמו תגובות בפורומים, יצירת אינטרקציות ברשתות חברתיות שימוש בוידאו</div>
+    <div class="hebrew">web 3 - קיימת למידה והתאמה אישית של התוכן למשתמשים ושימוש בטכנולוגיות מתקדמות שיכולות להשתמש בבינה מלאכותית כדי לשלוט על מידע ונתונים</div>
+    <div class="hebrew-title"><u>יצירת תוכן/אתרים</u></div>
+    <div class="hebrew">web1 - חברות גדולות וארגונים על מנת לשתף מידע</div>
+    <div class="hebrew">web 2 - נוספה האפשרות לפרסם מידע ולייצר אתרים עם מגוון תכנים - רשתות חברתיות לשיתוף מידע פרטי כמו תמונות וכו', בלוגים...</div>
+    <div class="hebrew">web 3 -  כמו ב2, גם כאן ניתן ליצור ולפרסם במגוון אתרים אבל יש גם דגש שמנסים ליצור תוכן שגם "מכונות" ובינה מלאכותיתיבינו בצורה טובה.</div>
+    <div class="hebrew-title"><u>אחזור מידע/מנועי חיפוש</u></div>
+    <div class="hebrew">web1 - מנועי החיפוש מחזירים תוצאות לא מדויקות ולא קיימים הרבה מנועים טובים</div>
+    <div class="hebrew">web 2 - ניתן להעלות שאלות לרשתות חברתיות ופורומים, נוצרו מנועי חיפוש שמחזירים מידע בצורה יותר טובה אבל עדיין חזרו תוצאות עם מידע לא רלוונטי לעיתים</div>
+    <div class="hebrew">web 3 - כעת ניתן לאחזר מידע רלוונטי יותר לשאילתות באמצעות בינה מלאכותית וכלים מתקדמים אחרים. </div>
 </section>
 
 <section id="contact" class="section">
@@ -71,42 +99,54 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    // Smooth scrolling functionality
-    $('#menu a[href^="#"]').on('click', function(event) {
-        var target = $(this.getAttribute('href'));
-        if( target.length ) {
-            event.preventDefault();
-            var menuHeight = $('#menu').outerHeight(); // Get the height of the menu
-            $('html, body').stop().animate({
-                scrollTop: target.offset().top - menuHeight - 30 // Adjusted offset
-            }, 1000);
-        }
-    });
+    $(document).ready(function(){
+        // Smooth scrolling functionality
+        $('#menu a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if( target.length ) {
+                event.preventDefault();
+                var menuHeight = $('#menu').outerHeight(); // Get the height of the menu
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top - menuHeight - 30 // Adjusted offset
+                }, 1000);
+            }
+        });
 
-    // Like button functionality
-    var liked = false; // Variable to track like state
-    $("#likeButton").click(function() {
-        liked = !liked; // Toggle the liked state
-        if (liked) {
-            $(this).text('Unlike');
-            $(this).css('background-color', '#FF6347');
-            $(this).addClass('animate__animated animate__bounce'); // Add animate.css class
-            // Remove animation class after it completes
-            setTimeout(() => {
-                $(this).removeClass('animate__animated animate__bounce');
-            }, 1000); // Time in milliseconds
-        } else {
-            $(this).text('Like');
-            $(this).css('background-color', '#4CAF50');
-            $(this).addClass('animate__animated animate__headShake'); // Add animate.css class
-            // Remove animation class after it completes
-            setTimeout(() => {
-                $(this).removeClass('animate__animated animate__headShake');
-            }, 1000); // Time in milliseconds
+        // Like button functionality
+        var liked = false; // Variable to track like state
+        $("#likeButton").click(function() {
+            liked = !liked; // Toggle the liked state
+            if (liked) {
+                $(this).text('Unlike');
+                $(this).css('background-color', '#FF6347');
+                $(this).addClass('animate__animated animate__bounce'); // Add animate.css class
+                // Remove animation class after it completes
+                setTimeout(() => {
+                    $(this).removeClass('animate__animated animate__bounce');
+                }, 1000); // Time in milliseconds
+            } else {
+                $(this).text('Like');
+                $(this).css('background-color', '#4CAF50');
+                $(this).addClass('animate__animated animate__headShake'); // Add animate.css class
+                // Remove animation class after it completes
+                setTimeout(() => {
+                    $(this).removeClass('animate__animated animate__headShake');
+                }, 1000); // Time in milliseconds
+            }
+        });
+
+        // JavaScript for sliding window effect
+        const photos = document.querySelectorAll('.photos-container img');
+        let currentIndex = 0;
+
+        function slidePhotos() {
+            photos[currentIndex].style.display = 'none'; // Hide current photo
+            currentIndex = (currentIndex + 1) % photos.length; // Increment index, looping back to 0 if necessary
+            photos[currentIndex].style.display = 'block'; // Show next photo
         }
+
+        setInterval(slidePhotos, 3000); // Change photo every 3 seconds
     });
-});
 </script>
 </body>
 </html>
