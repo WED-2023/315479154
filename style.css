@@ -17,7 +17,7 @@ body {
 
 #headerImage {
     position: absolute; /* Position the image absolutely within the header */
-    bottom: 38%; /* Align the image to the bottom of the header */
+    bottom: 0%; /* Align the image to the bottom of the header */
     left: 50%; /* Align the image horizontally */
     transform: translateX(-50%); /* Center the image horizontally */
     width: 200px;
