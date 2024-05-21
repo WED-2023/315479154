@@ -6,24 +6,24 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         .photos-container {
-            width: 500px; /* Increase the width */
-            height: 400px; /* Increase the height */
-            overflow: hidden; /* Hide overflow to create the sliding effect */
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
             position: relative;
-            margin-left: 50px; /* Move container 50px to the right */
+            margin-left: 50px;
         }
 
         .photos-container img {
-            width: 100%; /* Ensure the image fills the container */
-            height: auto; /* Maintain aspect ratio */
+            width: 100%;
+            height: auto;
             position: absolute;
-            transition: left 1s ease; /* Add smooth transition effect */
+            transition: left 1s ease;
         }
         
         .frame {
-            border: 10px solid yellow; /* Adjust border properties as needed */
-            padding: 20px; /* Adjust padding as needed */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+            border: 10px solid yellow;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -57,7 +57,6 @@
     <div class="styled-text">my photos</div>
     <div class="photos-container">
         <img src="photos/hercules_baby.jpeg" alt="hercules_baby">
-        <!-- <img src="photos/hercules teenager.png" alt="teenager" style="display: none;"> -->
         <img src="photos/herc phil and pegasus.webp" alt="herc pegasus phil" style="display: none;">
         <img src="photos/herc and megara.webp" alt="hercules and megara" style="display: none;">
         <img src="photos/zeus and herc.jpg" alt="hercules and zeus" style="display: none;">
@@ -149,21 +148,21 @@
             var target = $(this.getAttribute('href'));
             if( target.length ) {
                 event.preventDefault();
-                var menuHeight = $('#menu').outerHeight(); // Get the height of the menu
+                var menuHeight = $('#menu').outerHeight(); 
                 $('html, body').stop().animate({
-                    scrollTop: target.offset().top - menuHeight - 30 // Adjusted offset
+                    scrollTop: target.offset().top - menuHeight - 30 
                 }, 1000);
             }
         });
 
         // Like button functionality
-        var liked = false; // Variable to track like state
+        var liked = false; 
         $("#likeButton").click(function() {
-            liked = !liked; // Toggle the liked state
+            liked = !liked; 
             if (liked) {
                 $(this).text('Unlike');
                 $(this).css('background-color', '#FF6347');
-                $(this).addClass('animate__animated animate__bounce'); // Add animate.css class
+                $(this).addClass('animate__animated animate__bounce'); 
                 setTimeout(() => {
                     $(this).removeClass('animate__animated animate__bounce');
                 }, 1000);
@@ -189,7 +188,7 @@
 
         // Contact form submission
         $('#contactForm').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
             var email = $('#email').val();
             var message = $('#message').val();
             var smiley = $('#smiley').val();
@@ -197,8 +196,8 @@
 
             window.location = 'mailto:galevi403@gmail.com?subject=Message from ' + email + '&body=' + body;
 
-            alert('Your email application has been opened!'); // Inform user
-            this.reset(); // Optionally reset the form
+            alert('Your email application has been opened!'); 
+            this.reset(); 
         });
     });
 </script>

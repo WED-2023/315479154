@@ -16,10 +16,10 @@ body {
 }
 
 #headerImage {
-    position: absolute; /* Position the image absolutely within the header */
-    bottom: 38%; /* Align the image to the bottom of the header */
-    left: 50%; /* Align the image horizontally */
-    transform: translateX(-50%); /* Center the image horizontally */
+    position: absolute;
+    bottom: 38%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 200px;
     height: 200px;
     border-radius: 20%;
@@ -28,7 +28,7 @@ body {
 
 #menu {
     position: fixed;
-    top: 0; /* Align menu exactly from the top */
+    top: 0;
     width: 100%;
     height: 35px;
     background: rgba(241, 130, 4, 1);
@@ -58,15 +58,14 @@ body {
     font-weight: bold;
     color: rgb(22, 22, 99);
     margin-top: 20px;
-    max-width: 600px; /* Set maximum width for the rows */
-    margin: 0 auto; /* Center-align the rows */
-    text-align: left; /* Align text to the left within the rows */
-
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
     margin-bottom: 50px;
 }
 
 #like {
-    text-align: center; /* Center-align the like button */
+    text-align: center;
 }
 
 #likeButton {
@@ -77,25 +76,22 @@ body {
     border: none;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block; /* Add this to make the button inline-block */
+    display: inline-block;
     margin-right: 50px;
 }
 
-
-
 row {
     margin-top: 100px;
-    margin: 0 auto; /* Center-align the rows */
-    text-align: left; /* Align text to the left within the rows */
-
+    margin: 0 auto;
+    text-align: left;
 }
 
 .styled-text {
     text-align: center;
     margin-bottom: 20px;
-    padding: 10px; /* Adjust padding as needed */
-    border: 2px solid #ccc; /* Border style and color */
-    background-color: #f9f9f9; /* Background color */
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
 }
 
 #photos {
@@ -106,21 +102,21 @@ row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px; /* Adjust the top margin as needed */
+    margin-top: 20px;
 }
 
 .photos-container img {
     width: 200px;
     height: auto;
-    margin: 10px; /* Adjust the margin between photos */
+    margin: 10px;
 }
 
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+    padding-bottom: 56.25%;
     overflow: hidden;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px;
 }
 
 .video-container iframe {
@@ -131,12 +127,12 @@ row {
     height: 100%;
 }
 
-.hebrew{
+.hebrew {
     direction: rtl;
     text-align: right;
 }
 
-.hebrew-title{
+.hebrew-title {
     direction: rtl;
     text-align: center;
 }
@@ -154,7 +150,6 @@ row {
     width: 500px;
 }
 
-
 body::before {
     content: '';
     position: fixed;
@@ -162,10 +157,6 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place behind other content */
-    pointer-events: none; /* Make sure it doesn't interfere with interaction */
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 100 100" fill="%23f0f"><text x="20" y="50" font-size="30">⚡</text></svg>') repeat;
+    z-index: -1;
+    pointer-events: none;
 }
-
-
-
